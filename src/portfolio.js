@@ -23,7 +23,7 @@ const greeting = {
   logo_name: "Edbert Pasamba",
   nickname: "Bert",
   subTitle:
-    "A dedicated programmer with a strong vision for turning ideas into reality through focus, innovation, and technical expertise.",
+    "A dedicated software developer and data engineer with a passion for building scalable applications, designing efficient data pipelines, and transforming raw data into actionable insights.",
   resumeLink:
     "https://drive.google.com/file/d/1ODybO2fEG71QFY1O3vTSZU3fMXQwAqDH/view?usp=sharing",
   portfolio_repository: "https://github.com/BertProgrmamming",
@@ -166,12 +166,14 @@ const skills = {
     },
 
     {
-      title: "Data Science & AI",
+      title: "Data Engineering & Analytics",
       fileName: "DataScienceImg",
       skills: [
-        "- Analyzes and processes data using Python, Excel, and MySQL for insights and decision-making.",
-        "- Utilizes ChatGPT and AI tools for automation, data interpretation, and enhanced problem-solving.",
-        "- Manages databases and builds data-driven solutions with MySQL and Python scripting.",
+        "- Designs and builds ETL/ELT data pipelines to ingest, transform, and load data across various sources and destinations.",
+        "- Develops data workflows and orchestration using Apache Airflow for reliable and automated pipeline scheduling.",
+        "- Analyzes and processes large datasets using Python (Pandas, NumPy) and SQL for data-driven insights.",
+        "- Builds and maintains data warehouses and data models using dbt for clean, testable transformations.",
+        "- Leverages AI tools like ChatGPT for automation, data interpretation, and enhanced problem-solving.",
       ],
       softwareSkills: [
         {
@@ -183,11 +185,50 @@ const skills = {
           },
         },
         {
+          skillName: "Apache Airflow",
+          fontAwesomeClassname: "simple-icons:apacheairflow",
+          style: {
+            backgroundColor: "transparent",
+            color: "#017CEE",
+          },
+        },
+        {
+          skillName: "dbt",
+          fontAwesomeClassname: "simple-icons:dbt",
+          style: {
+            backgroundColor: "transparent",
+            color: "#FF694B",
+          },
+        },
+        {
+          skillName: "Apache Spark",
+          fontAwesomeClassname: "simple-icons:apachespark",
+          style: {
+            backgroundColor: "transparent",
+            color: "#E25A1C",
+          },
+        },
+        {
+          skillName: "MySQL",
+          fontAwesomeClassname: "devicon:mysql-wordmark",
+          style: {
+            color: "#00618A",
+          },
+        },
+        {
           skillName: "Excel",
           fontAwesomeClassname: "vscode-icons:file-type-excel",
           style: {
             backgroundColor: "transparent",
-            color: "#3776AB",
+            color: "#217346",
+          },
+        },
+        {
+          skillName: "Pandas",
+          fontAwesomeClassname: "simple-icons:pandas",
+          style: {
+            backgroundColor: "transparent",
+            color: "#150458",
           },
         },
         {
@@ -195,17 +236,10 @@ const skills = {
           fontAwesomeClassname: "hugeicons:chat-gpt",
           style: {
             backgroundColor: "transparent",
-            color: "#3776AB",
+            color: "#10A37F",
           },
         },
-        {
-          skillName: "MySQL",
-          fontAwesomeClassname: "devicon:mysql-wordmark",
-          style: {
-            color: "#CB3837",
-          },
-        },
-      ],        
+      ],
     },
     {
       title: "Cloud Infra-Architecture",
