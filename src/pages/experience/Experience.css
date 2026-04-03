@@ -1,88 +1,200 @@
-.experience-main {
+/* ── Page Wrapper ─────────────────────────────── */
+.exp-page-wrapper {
   width: 100%;
+  padding: 80px 6% 100px;
+  box-sizing: border-box;
 }
 
-.basic-experience {
-  margin-left: 5%;
-  margin-right: 5%;
+/* ── Page Header ──────────────────────────────── */
+.exp-page-header {
+  text-align: left;
+  margin-bottom: 48px;
 }
 
-.experience-heading-div {
+.exp-page-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: "Google Sans Bold";
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+}
+
+[data-theme="dark"] .exp-page-title {
+  background: linear-gradient(135deg, #ffffff 30%, #b388ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.exp-page-sub {
+  font-size: 1rem;
+  line-height: 1.7;
+  font-family: "Google Sans Regular";
+  max-width: 700px;
+  margin: 0;
+}
+
+/* ── Cards List ───────────────────────────────── */
+.exp-cards-list {
   display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.experience-heading-div > * {
-  flex: 1;
+/* ── Individual Card ──────────────────────────── */
+.exp-card {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.experience-heading-img-div {
+[data-theme="dark"] .exp-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme="light"] .exp-card {
+  background: #ffffff;
+  border-color: #e8e0f5;
+  box-shadow: 0 4px 24px rgba(76, 43, 145, 0.07);
+}
+
+.exp-card:hover {
+  transform: translateY(-4px);
+}
+
+[data-theme="dark"] .exp-card:hover {
+  box-shadow: 0 16px 48px rgba(179, 136, 255, 0.18);
+  border-color: rgba(179, 136, 255, 0.25);
+}
+
+[data-theme="light"] .exp-card:hover {
+  box-shadow: 0 12px 40px rgba(76, 43, 145, 0.14);
+}
+
+/* ── Logo ─────────────────────────────────────── */
+.exp-card-logo-wrap {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.experience-heading-text-div {
-  text-align: center;
+.exp-card-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.experience-heading-img-div > * {
-  max-width: 100%;
-  height: auto;
+/* ── Body ─────────────────────────────────────── */
+.exp-card-body {
+  flex: 1;
+  min-width: 0;
 }
 
-.experience-heading-text {
-  font-size: 56px;
-  font-weight: 400;
+.exp-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.exp-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exp-card-role {
+  font-size: 1.15rem;
+  font-family: "Google Sans Bold";
+  margin: 0;
+  line-height: 1.3;
+}
+
+.exp-card-company {
+  font-size: 0.95rem;
   font-family: "Google Sans Medium";
-  line-height: 1.1;
-  text-align: center;
-  margin-top: 80px;
+  text-decoration: none;
+  transition: opacity 0.2s;
 }
 
-.experience-heading-sub-text {
-  font-size: 30px;
+.exp-card-company:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+.exp-card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.exp-badge-current {
+  font-size: 0.72rem;
+  font-family: "Google Sans Medium";
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.exp-card-duration {
+  font-size: 0.85rem;
   font-family: "Google Sans Regular";
-  text-align: center;
-  margin-bottom: 10px;
+  margin: 0;
+  text-align: right;
 }
 
-.experience-header-detail-text {
-  font-size: 20px;
-  line-height: 30px;
-  margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-family: "Google Sans Medium";
+.exp-card-location {
+  font-size: 0.82rem;
+  font-family: "Google Sans Regular";
+  margin: 0;
+  text-align: right;
 }
 
-@media (max-width: 1380px) {
-  .experience-heading-text {
-    font-size: 50px;
-    margin-top: 80px;
-  }
-  .experience-heading-sub-text {
-    font-size: 25px;
-  }
+.exp-card-desc {
+  font-size: 0.92rem;
+  font-family: "Google Sans Regular";
+  line-height: 1.7;
+  margin: 0;
 }
 
+/* ── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
-  .experience-heading-text {
-    font-size: 30px;
-    margin-top: 20px;
+  .exp-page-wrapper {
+    padding: 50px 20px 70px;
   }
 
-  .experience-heading-sub-text {
-    font-size: 20px;
+  .exp-card {
+    flex-direction: column;
+    gap: 16px;
   }
 
-  .experience-heading-div {
+  .exp-card-top {
     flex-direction: column;
   }
 
-  .experience-header-detail-text {
-    font-size: 16px;
-    margin-right: 0px;
-    line-height: normal;
-    text-align: center;
+  .exp-card-right {
+    align-items: flex-start;
+  }
+
+  .exp-card-duration,
+  .exp-card-location {
+    text-align: left;
   }
 }

@@ -1,122 +1,142 @@
-.repo-card-div {
-  color: rgb(88, 96, 105);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 30px -15px;
-  padding: 2rem;
-  cursor: pointer;
-  flex: 1 1 25%;
-}
-.repo-card-div:hover {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px -10px;
+/* ── iOS Glass Card ───────────────────────────── */
+.glass-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease,
+    background 0.3s ease;
+  overflow: hidden;
 }
 
-.repo-stats {
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(179, 136, 255, 0.35);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(179, 136, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(76, 43, 145, 0.1);
+  box-shadow: 0 4px 24px rgba(76, 43, 145, 0.08);
+}
+
+[data-theme="light"] .glass-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(76, 43, 145, 0.25);
+  box-shadow: 0 16px 48px rgba(76, 43, 145, 0.15);
+}
+
+/* ── Header ───────────────────────────────────── */
+.glass-card-header {
   display: flex;
-  -webkit-box-pack: justify;
+  align-items: flex-start;
   justify-content: space-between;
-  font-size: 13px;
-  color: rgb(106, 115, 125);
+  gap: 12px;
 }
 
-.repo-left-stat {
-  -webkit-box-flex: 1;
-  flex-grow: 1;
-  display: flex;
-}
-
-.language-color {
-  width: 10px;
-  height: 10px;
-  background-color: blue;
-  margin-right: 0.25rem;
-  border-radius: 100%;
-}
-
-.repo-left-stat span {
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  margin-right: 0.75rem;
-}
-
-.repo-name-div {
-  display: flex;
-  align-items: center;
-}
-
-.repo-svg {
-  margin-right: 0.5rem;
-  min-width: 16px;
-}
-
-.repo-name {
-  text-align: left;
-  color: rgb(36, 41, 46);
-  font-family: "Google Sans Regular";
-  margin-bottom: 0.75rem;
-  font-size: 25px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  overflow: hidden;
-  line-height: 1.2;
-  margin: 0px;
-}
-
-.repo-star-svg {
-  margin-right: 0.3rem;
-}
-
-.repo-description {
-  overflow: hidden;
-  text-align: left;
-  display: -webkit-box;
-  font-family: "Google Sans Regular";
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  margin-top: 0.8rem;
-}
-
-.repo-details {
-  display: flex;
-  flex-direction: row;
-}
-
-.repo-creation-date {
+.glass-card-name {
+  font-family: "Google Sans Bold";
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.3;
   margin: 0;
+  color: #ffffff;
+  flex: 1;
+}
+
+[data-theme="light"] .glass-card-name {
+  color: #1d0c41;
+}
+
+.glass-card-arrow {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.glass-card:hover .glass-card-arrow {
+  color: #b388ff;
+  transform: translate(2px, -2px);
+}
+
+[data-theme="light"] .glass-card-arrow {
+  color: rgba(76, 43, 145, 0.3);
+}
+
+[data-theme="light"] .glass-card:hover .glass-card-arrow {
+  color: #4c2b91;
+}
+
+/* ── Description ──────────────────────────────── */
+.glass-card-desc {
   font-family: "Google Sans Regular";
-  font-weight: 400;
-  margin-left: 0px;
-  margin-right: auto;
+  font-size: clamp(0.82rem, 1vw, 0.92rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.58);
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.repo-languages {
-  margin-left: auto;
-  margin-right: 0px;
+[data-theme="light"] .glass-card-desc {
+  color: #6b5b8a;
 }
 
-@media (max-width: 1200px) {
-  .repo-card-div {
-    flex: 1 1 40%;
-  }
+/* ── Footer ───────────────────────────────────── */
+.glass-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-@media (max-width: 768px) {
-  .repo-card-div {
-    flex: 1 1 100%;
-  }
+[data-theme="light"] .glass-card-footer {
+  border-top-color: rgba(76, 43, 145, 0.08);
+}
 
-  .repo-name {
-    font-size: 16px;
-  }
+.glass-card-date {
+  font-family: "Google Sans Regular";
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
 
-  .repo-description {
-    font-size: 14px;
-  }
+[data-theme="light"] .glass-card-date {
+  color: #9b8aaf;
+}
 
-  .repo-details {
-    flex-direction: column;
-  }
-
-  .repo-creation-date {
-    font-size: 14px;
-  }
+.glass-card-langs {
+  display: flex;
+  align-items: center;
 }

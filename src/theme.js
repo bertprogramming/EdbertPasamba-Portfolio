@@ -195,4 +195,34 @@ export const materialTealTheme = {
   splashBg: "#05505E",
 };
 
-export const chosenTheme = materialLightTheme;
+export const darkTheme = {
+  body: "#0f0c29",
+  text: "#ffffff",
+  expTxtColor: "#ffffff",
+  highlight: "rgba(255,255,255,0.08)",
+  dark: "#000000",
+  secondaryText: "rgba(255,255,255,0.58)",
+  imageHighlight: "#b388ff",
+  compImgHighlight: "rgba(255,255,255,0.1)",
+  jacketColor: "#b388ff",
+  headerColor: "rgba(179,136,255,0.2)",
+  splashBg: "#0f0c29",
+  isDark: true,
+};
+
+export const lightTheme = {
+  body: "#ffffff",
+  text: "#4c2b91",
+  expTxtColor: "#000000",
+  highlight: "#E9E3F5",
+  dark: "#1d0c41",
+  secondaryText: "#7d56c2",
+  imageHighlight: "#2b1958",
+  compImgHighlight: "#E1E2E1",
+  jacketColor: "#E1E2E1",
+  headerColor: "#E1E2E1",
+  splashBg: "#7d56c2",
+  isDark: false,
+};
+
+export const chosenTheme = lightTheme;

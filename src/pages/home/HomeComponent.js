@@ -7,13 +7,14 @@ import TopButton from "../../components/topButton/TopButton";
 
 class Home extends Component {
   render() {
+    const { theme, toggleTheme, isDark } = this.props;
     return (
       <div>
-        <Header theme={this.props.theme} />
-        <Greeting theme={this.props.theme} />
-        <Skills theme={this.props.theme} />
-        <Footer theme={this.props.theme} />
-        <TopButton theme={this.props.theme} />
+        <Header theme={theme} toggleTheme={toggleTheme} isDark={isDark} />
+        <Greeting theme={theme} />
+        <Skills theme={theme} />
+        <Footer theme={theme} />
+        <TopButton theme={theme} />
       </div>
     );
   }

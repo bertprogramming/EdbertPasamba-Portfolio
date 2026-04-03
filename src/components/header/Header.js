@@ -17,15 +17,15 @@ const onMouseOut = (event) => {
 
 class Header extends Component {
   render() {
-    const theme = this.props.theme;
+    const { theme, toggleTheme, isDark } = this.props;
     const link = settings.isSplash ? "/splash" : "home";
     return (
       <Fade top duration={1000} distance="20px">
         <SeoHeader />
-        <div>
+        <div className="header-wrapper">
           <header className="header">
             <NavLink to={link} tag={Link} className="logo">
-              <span style={{ color: theme.text }}> &lt;</span>
+              <span style={{ color: theme.text }}>&lt;</span>
               <span className="logo-name" style={{ color: theme.text }}>
                 {greeting.logo_name}
               </span>
@@ -97,10 +97,26 @@ class Header extends Component {
                 </NavLink>
               </li>
             </ul>
+
+            <button
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            >
+              <span className="theme-toggle-track" data-dark={isDark}>
+                <span className="theme-toggle-thumb">
+                  <span className="theme-toggle-icon">
+                    {isDark ? "🌙" : "☀️"}
+                  </span>
+                </span>
+              </span>
+            </button>
           </header>
         </div>
       </Fade>
     );
   }
 }
+
 export default Header;

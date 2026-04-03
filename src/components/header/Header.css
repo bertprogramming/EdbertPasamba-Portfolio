@@ -1,69 +1,156 @@
-/* header */
-
-.header {
-  display: block;
-  max-width: 90%;
-  padding: 20px 10px;
-  margin: 0px auto;
+/* ── Header Wrapper ───────────────────────────── */
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background-color: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+[data-theme="dark"] .header-wrapper {
+  background-color: rgba(15, 12, 41, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* ── Header Layout ────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 6%;
+  height: 68px;
+  gap: 16px;
+  box-sizing: border-box;
+}
+
+/* ── Logo ─────────────────────────────────────── */
+.header .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  text-decoration: none;
+  line-height: 1;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.header .logo-name {
+  font-family: "Agustina Regular";
+  font-weight: bold;
+  padding: 0 6px;
+}
+
+/* ── Nav Menu ─────────────────────────────────── */
 .header ul {
   margin: 0;
   padding: 0;
   list-style: none;
-  overflow: hidden;
-  /* background-color: #fff; */
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: transparent !important;
 }
-.grey-color {
-  color: #868e96;
-}
-
-.header li a {
-  display: block;
-  padding: 20px 20px;
-  /* color: black; */
-  text-decoration: none;
-}
-
-.header li a:hover,
-.header .menu-btn:hover {
-  /* background-color: #A6E1FA; */
-}
-
-.header .logo {
-  display: block;
-  float: left;
-  font-size: 1.5em;
-  text-decoration: none;
-  margin-top: 10px;
-  line-height: normal;
-}
-.header .logo-name {
-  font-family: "Agustina Regular";
-  font-weight: bold;
-  padding: 0 10px;
-  /* color: #55198b; */
-}
-
-/* menu */
 
 .menu {
   font-family: "Google Sans Regular";
 }
 
-.header .menu {
-  clear: both;
-  max-height: 0;
-  transition: max-height 0.2s ease-out;
+.header li a {
+  display: block;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  text-decoration: none;
+  border-radius: 6px;
+  position: relative;
+  transition: background-color 0.2s ease;
+  letter-spacing: 0.02em;
 }
 
-/* menu icon */
+.header li a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+  transform-origin: left;
+}
 
+.header li a:hover::after {
+  transform: scaleX(1);
+}
+
+.header li a:hover {
+  background-color: transparent !important;
+}
+
+/* ── Dark/Light Toggle ────────────────────────── */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle-track {
+  display: flex;
+  align-items: center;
+  width: 56px;
+  height: 28px;
+  border-radius: 999px;
+  background: #e2d9f3;
+  position: relative;
+  transition: background 0.3s ease;
+  padding: 3px;
+}
+
+.theme-toggle-track[data-dark="true"] {
+  background: rgba(179, 136, 255, 0.35);
+}
+
+.theme-toggle-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 3px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.theme-toggle-track[data-dark="true"] .theme-toggle-thumb {
+  transform: translateX(28px);
+  background: #302b63;
+}
+
+.theme-toggle-icon {
+  font-size: 13px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Hamburger (mobile) ───────────────────────── */
 .header .menu-icon {
   cursor: pointer;
-  display: inline-block;
-  float: right;
-  padding: 28px 20px;
+  display: none;
+  padding: 14px 0;
   position: relative;
   user-select: none;
 }
@@ -74,7 +161,13 @@
   height: 2px;
   position: relative;
   transition: background 0.2s ease-out;
-  width: 18px;
+  width: 22px;
+}
+
+[data-theme="dark"] .header .menu-icon .navicon,
+[data-theme="dark"] .header .menu-icon .navicon:before,
+[data-theme="dark"] .header .menu-icon .navicon:after {
+  background: #ffffff;
 }
 
 .header .menu-icon .navicon:before,
@@ -89,31 +182,26 @@
 }
 
 .header .menu-icon .navicon:before {
-  top: 5px;
+  top: 6px;
 }
-
 .header .menu-icon .navicon:after {
-  top: -5px;
+  top: -6px;
 }
-
-/* menu btn */
 
 .header .menu-btn {
   display: none;
 }
 
 .header .menu-btn:checked ~ .menu {
-  max-height: 370px;
+  max-height: 400px;
 }
 
 .header .menu-btn:checked ~ .menu-icon .navicon {
   background: transparent;
 }
-
 .header .menu-btn:checked ~ .menu-icon .navicon:before {
   transform: rotate(-45deg);
 }
-
 .header .menu-btn:checked ~ .menu-icon .navicon:after {
   transform: rotate(45deg);
 }
@@ -123,26 +211,48 @@
   top: 0;
 }
 
-/* 48em = 768px */
+.grey-color {
+  color: #868e96;
+}
 
-@media (min-width: 48em) {
-  .header li {
-    float: left;
-  }
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 768px) {
   .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding: 0 20px;
+    height: auto;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    flex-wrap: wrap;
   }
-  .header .menu {
-    max-height: none;
-  }
+
   .header .menu-icon {
-    display: none;
+    display: inline-block;
+  }
+
+  .header .menu {
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    width: 100%;
+    transition: max-height 0.25s ease-out;
+  }
+
+  .header .menu li {
+    width: 100%;
+  }
+
+  .header li a {
+    padding: 12px 4px;
+  }
+
+  .theme-toggle-btn {
+    order: 3;
   }
 }
-@media (max-width: 960px) and (min-width: 768px) {
-  .header {
-    font-size: 12px;
+
+@media (min-width: 769px) {
+  .header .menu {
+    max-height: none !important;
+    overflow: visible;
   }
 }

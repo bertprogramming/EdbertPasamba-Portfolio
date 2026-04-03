@@ -17,7 +17,13 @@ class ExperienceCard extends Component {
           <div className="experience-card-logo-div">
             <img
               className="experience-card-logo"
-              src={require(`../../assets/images/${experience["logo_path"]}`)}
+              src={(() => {
+                try {
+                  return require(`../../assets/images/${experience["logo_path"]}`);
+                } catch (e) {
+                  return require(`../../assets/images/codeInLogo.png`);
+                }
+              })()}
               alt=""
             />
           </div>

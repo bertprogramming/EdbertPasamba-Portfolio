@@ -3,65 +3,51 @@ import "./Skills.css";
 import SoftwareSkill from "../../components/softwareSkills/SoftwareSkill";
 import { skills } from "../../portfolio";
 import { Fade } from "react-reveal";
-import DataScienceImg from "./DataScienceImg";
-import FullStackImg from "./FullStackImg";
-import CloudInfraImg from "./CloudInfraImg";
-import DesignImg from "./DesignImg";
 
-function GetSkillSvg(props) {
-  if (props.fileName === "DataScienceImg")
-    return <DataScienceImg theme={props.theme} />;
-  else if (props.fileName === "FullStackImg")
-    return <FullStackImg theme={props.theme} />;
-  else if (props.fileName === "CloudInfraImg")
-    return <CloudInfraImg theme={props.theme} />;
-  return <DesignImg theme={props.theme} />;
-}
+const cardAccents = [
+  {
+    gradient: "linear-gradient(135deg, #667eea, #764ba2)",
+    glow: "rgba(102,126,234,0.45)",
+  },
+  {
+    gradient: "linear-gradient(135deg, #f093fb, #f5576c)",
+    glow: "rgba(245,87,108,0.45)",
+  },
+  {
+    gradient: "linear-gradient(135deg, #4facfe, #00f2fe)",
+    glow: "rgba(79,172,254,0.45)",
+  },
+  {
+    gradient: "linear-gradient(135deg, #43e97b, #38f9d7)",
+    glow: "rgba(67,233,123,0.45)",
+  },
+];
 
 class SkillSection extends Component {
   render() {
-    const theme = this.props.theme;
     return (
-      <div>
+      <div className="skills-cards-grid">
         {skills.data.map((skill, i) => {
+          const accent = cardAccents[i % cardAccents.length];
           return (
-            <div key={i} className="skills-main-div">
-              <Fade left duration={2000}>
-                <div className="skills-image-div">
-                  {/* <img
-                    alt="Ashutosh is Analysing Data"
-                    src={require(`../../assets/images/${skill.imagePath}`)}
-                  ></img> */}
-                  <GetSkillSvg fileName={skill.fileName} theme={theme} />
-                </div>
-              </Fade>
-
-              <div className="skills-text-div">
-                <Fade right duration={1000}>
-                  <h1 className="skills-heading" style={{ color: theme.text }}>
-                    {skill.title}
-                  </h1>
-                </Fade>
-                <Fade right duration={1500}>
-                  <SoftwareSkill logos={skill.softwareSkills} />
-                </Fade>
-                <Fade right duration={2000}>
-                  <div>
-                    {skill.skills.map((skillSentence, i) => {
-                      return (
-                        <p
-                          key={i}
-                          className="subTitle skills-text"
-                          style={{ color: theme.secondaryText }}
-                        >
-                          {skillSentence}
-                        </p>
-                      );
-                    })}
-                  </div>
-                </Fade>
+            <Fade bottom duration={700} delay={i * 130} key={i}>
+              <div
+                className={`skill-card skill-card--${i}`}
+                style={{ "--glow": accent.glow, "--gradient": accent.gradient }}
+              >
+                <div
+                  className="skill-card-top-bar"
+                  style={{ background: accent.gradient }}
+                />
+                <h3 className="skill-card-title">{skill.title}</h3>
+                <SoftwareSkill logos={skill.softwareSkills} />
+                <ul className="skill-card-bullets">
+                  {skill.skills.map((s, j) => (
+                    <li key={j}>{s.replace(/^- /, "")}</li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            </Fade>
           );
         })}
       </div>

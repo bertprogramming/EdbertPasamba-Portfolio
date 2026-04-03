@@ -1,27 +1,64 @@
+.software-skills-main-div {
+  padding: 4px 28px 8px;
+}
+
 .dev-icons {
   padding-left: 0;
   list-style: none;
-  font-size: 3rem;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  text-align: center;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
+/* ── Icon pill ────────────────────────────────── */
 .software-skill-inline {
-  display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  font-family: "Google Sans Regular";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  font-size: 1.4rem;
+  position: relative;
+}
+
+.software-skill-inline:hover {
+  transform: translateY(-4px) scale(1.12);
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 .software-skill-inline > i {
-  color: #868e96;
-}
-
-.software-skill-inline > i:hover {
-  color: #645beb;
+  color: #fff;
 }
 
 .skill-image {
-  height: 48px;
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── Force tooltip above cards ────────────────── */
+.tooltip {
+  z-index: 9999 !important;
+}
+
+.tooltip-inner {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  font-family: "Google Sans Medium";
+  font-size: 0.78rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(179, 136, 255, 0.3);
+}
+
+.bs-tooltip-top .arrow::before,
+.bs-tooltip-auto[x-placement^="top"] .arrow::before {
+  border-top-color: #1a1a2e;
 }

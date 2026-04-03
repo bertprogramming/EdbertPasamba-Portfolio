@@ -1,11 +1,11 @@
 {
   "data": [
     {
-      "id": "R_kgDOJWL0-g",
+      "id": "arkicool-website",
       "name": "Arkicool Website",
       "createdAt": "2024-11-13T04:18:19Z",
       "url": "https://arkicoolservices.com",
-      "description": "Made with React",
+      "description": "Company website for an air-conditioning services business, featuring service listings, inquiry forms, and a modern responsive design.",
       "isFork": false,
       "languages": [
         {
@@ -23,11 +23,11 @@
       ]
     },
     {
-      "id": "Parking Management",
-      "name": "Parking Mangement",
+      "id": "parking-management",
+      "name": "Parking Management System",
       "createdAt": "2025-04-21T04:18:19Z",
       "url": "https://parking-management-gules.vercel.app",
-      "description": "Made with React, Tailwind",
+      "description": "Web-based parking management system with real-time slot tracking, vehicle entry/exit logging, and an admin dashboard.",
       "isFork": false,
       "languages": [
         {
@@ -35,12 +35,100 @@
           "iconifyClass": "devicon:react-wordmark"
         },
         {
-          "name": "tailwind",
+          "name": "Tailwind",
           "iconifyClass": "skill-icons:tailwindcss-dark"
         },
         {
-          "name": "Typescript",
+          "name": "TypeScript",
           "iconifyClass": "devicon:typescript"
+        }
+      ]
+    },
+    {
+      "id": "security-management-system",
+      "name": "Security Management System",
+      "createdAt": "2024-01-10T04:18:19Z",
+      "url": "#",
+      "description": "Internal security management platform for Aboitiz Equity Ventures, handling visitor logs, access control records, and incident reporting.",
+      "isFork": false,
+      "languages": [
+        {
+          "name": "PHP",
+          "iconifyClass": "devicon:php"
+        },
+        {
+          "name": "MySQL",
+          "iconifyClass": "devicon:mysql-wordmark"
+        },
+        {
+          "name": "JavaScript",
+          "iconifyClass": "logos-javascript"
+        }
+      ]
+    },
+    {
+      "id": "etl-pipeline-dashboard",
+      "name": "ETL Pipeline & Analytics Dashboard",
+      "createdAt": "2024-06-15T04:18:19Z",
+      "url": "#",
+      "description": "Automated ETL pipeline that ingests, transforms, and loads data from multiple sources into a centralized data warehouse, with a live analytics dashboard.",
+      "isFork": false,
+      "languages": [
+        {
+          "name": "Python",
+          "iconifyClass": "ion-logo-python"
+        },
+        {
+          "name": "Apache Airflow",
+          "iconifyClass": "simple-icons:apacheairflow"
+        },
+        {
+          "name": "PostgreSQL",
+          "iconifyClass": "simple-icons:postgresql"
+        }
+      ]
+    },
+    {
+      "id": "workflow-digitization",
+      "name": "Workflow Digitization App",
+      "createdAt": "2023-12-01T04:18:19Z",
+      "url": "#",
+      "description": "Internal web application that replaced paper-based approval workflows with digital forms, automated routing, and real-time status tracking.",
+      "isFork": false,
+      "languages": [
+        {
+          "name": "PHP",
+          "iconifyClass": "devicon:php"
+        },
+        {
+          "name": "MySQL",
+          "iconifyClass": "devicon:mysql-wordmark"
+        },
+        {
+          "name": "React",
+          "iconifyClass": "devicon:react-wordmark"
+        }
+      ]
+    },
+    {
+      "id": "portfolio-website",
+      "name": "Personal Portfolio Website",
+      "createdAt": "2024-11-01T04:18:19Z",
+      "url": "https://github.com/bertprogramming",
+      "description": "My personal developer portfolio built with React, showcasing my projects, skills, experience, and certifications.",
+      "isFork": false,
+      "languages": [
+        {
+          "name": "React",
+          "iconifyClass": "devicon:react-wordmark"
+        },
+        {
+          "name": "JavaScript",
+          "iconifyClass": "logos-javascript"
+        },
+        {
+          "name": "CSS3",
+          "iconifyClass": "devicon:css3-wordmark"
         }
       ]
     }

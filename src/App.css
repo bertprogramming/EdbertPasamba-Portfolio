@@ -29,6 +29,15 @@
   color: #868e96;
 }
 
+/* Global smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 /* Animations */
 @keyframes fade_down {
   0% {

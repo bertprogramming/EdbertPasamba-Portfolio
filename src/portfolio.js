@@ -23,11 +23,11 @@ const greeting = {
   logo_name: "Edbert Pasamba",
   nickname: "Bert",
   subTitle:
-    "A dedicated programmer with a strong vision for turning ideas into reality through focus, innovation, and technical expertise.",
+    "A dedicated software developer and data engineer with a passion for building scalable applications, designing efficient data pipelines, and transforming raw data into actionable insights.",
   resumeLink:
-    "https://drive.google.com/file/d/1ODybO2fEG71QFY1O3vTSZU3fMXQwAqDH/view?usp=sharing",
-  portfolio_repository: "https://github.com/BertProgrmamming",
-  githubProfile: "https://github.com/BertProgrmamming",
+    "https://drive.google.com/file/d/1XkA2KPFFMtA5exMoXiQ6d0GWeASmDU4y/view?usp=sharing",
+  portfolio_repository: "https://github.com/bertprogramming",
+  githubProfile: "https://github.com/bertprogramming",
 };
 
 const socialMediaLinks = [
@@ -42,7 +42,7 @@ const socialMediaLinks = [
 
   {
     name: "Github",
-    link: "https://github.com/BertProgrmamming",
+    link: "https://github.com/bertprogramming",
     fontAwesomeIcon: "fa-github", // Reference https://fontawesome.com/icons/github?style=brands
     backgroundColor: "#181717", // Reference https://simpleicons.org/?q=github
   },
@@ -166,12 +166,14 @@ const skills = {
     },
 
     {
-      title: "Data Science & AI",
+      title: "Data Engineering & Analytics",
       fileName: "DataScienceImg",
       skills: [
-        "- Analyzes and processes data using Python, Excel, and MySQL for insights and decision-making.",
-        "- Utilizes ChatGPT and AI tools for automation, data interpretation, and enhanced problem-solving.",
-        "- Manages databases and builds data-driven solutions with MySQL and Python scripting.",
+        "- Designs and builds ETL/ELT data pipelines to ingest, transform, and load data across various sources and destinations.",
+        "- Develops data workflows and orchestration using Apache Airflow for reliable and automated pipeline scheduling.",
+        "- Analyzes and processes large datasets using Python (Pandas, NumPy) and SQL for data-driven insights.",
+        "- Builds and maintains data warehouses and data models using dbt for clean, testable transformations.",
+        "- Leverages AI tools like ChatGPT for automation, data interpretation, and enhanced problem-solving.",
       ],
       softwareSkills: [
         {
@@ -183,11 +185,50 @@ const skills = {
           },
         },
         {
+          skillName: "Apache Airflow",
+          fontAwesomeClassname: "simple-icons:apacheairflow",
+          style: {
+            backgroundColor: "transparent",
+            color: "#017CEE",
+          },
+        },
+        {
+          skillName: "dbt",
+          fontAwesomeClassname: "simple-icons:dbt",
+          style: {
+            backgroundColor: "transparent",
+            color: "#FF694B",
+          },
+        },
+        {
+          skillName: "Apache Spark",
+          fontAwesomeClassname: "simple-icons:apachespark",
+          style: {
+            backgroundColor: "transparent",
+            color: "#E25A1C",
+          },
+        },
+        {
+          skillName: "MySQL",
+          fontAwesomeClassname: "devicon:mysql-wordmark",
+          style: {
+            color: "#00618A",
+          },
+        },
+        {
           skillName: "Excel",
           fontAwesomeClassname: "vscode-icons:file-type-excel",
           style: {
             backgroundColor: "transparent",
-            color: "#3776AB",
+            color: "#217346",
+          },
+        },
+        {
+          skillName: "Pandas",
+          fontAwesomeClassname: "simple-icons:pandas",
+          style: {
+            backgroundColor: "transparent",
+            color: "#150458",
           },
         },
         {
@@ -195,17 +236,10 @@ const skills = {
           fontAwesomeClassname: "hugeicons:chat-gpt",
           style: {
             backgroundColor: "transparent",
-            color: "#3776AB",
+            color: "#10A37F",
           },
         },
-        {
-          skillName: "MySQL",
-          fontAwesomeClassname: "devicon:mysql-wordmark",
-          style: {
-            color: "#CB3837",
-          },
-        },
-      ],        
+      ],
     },
     {
       title: "Cloud Infra-Architecture",
@@ -271,14 +305,67 @@ const skills = {
         },
       ],
     },
+    {
+      title: "Automation & No-Code",
+      fileName: "CloudInfraImg",
+      skills: [
+        "- Builds automated workflows using Google Apps Script to extend Google Workspace apps like Sheets, Docs, and Gmail.",
+        "- Connects apps and automates multi-step processes with Zapier, eliminating repetitive manual tasks.",
+        "- Develops custom business applications without traditional coding using AppSheet on top of Google Sheets and Drive.",
+        "- Designs end-to-end automation solutions that reduce paper-based processes and improve team productivity.",
+      ],
+      softwareSkills: [
+        {
+          skillName: "Google Apps Script",
+          fontAwesomeClassname: "simple-icons:google",
+          style: {
+            color: "#4285F4",
+          },
+        },
+        {
+          skillName: "Zapier",
+          fontAwesomeClassname: "simple-icons:zapier",
+          style: {
+            color: "#FF4A00",
+          },
+        },
+        {
+          skillName: "AppSheet",
+          imageSrc: "appsheet.png",
+          style: {
+            height: "24px",
+            width: "auto",
+          },
+        },
+        {
+          skillName: "Google Sheets",
+          fontAwesomeClassname: "simple-icons:googlesheets",
+          style: {
+            color: "#34A853",
+          },
+        },
+        {
+          skillName: "Google Drive",
+          fontAwesomeClassname: "simple-icons:googledrive",
+          style: {
+            color: "#4285F4",
+          },
+        },
+        {
+          skillName: "Gmail",
+          fontAwesomeClassname: "simple-icons:gmail",
+          style: {
+            color: "#EA4335",
+          },
+        },
+      ],
+    },
   ],
 };
 
 // Education Page
 const competitiveSites = {
-  competitiveSites: [
-    
-  ],
+  competitiveSites: [],
 };
 
 const degrees = {
@@ -308,7 +395,7 @@ const certifications = {
       alt_name: "Appsheet",
       color_code: "#1F70C199",
     },
-  
+
     {
       title: "Data Fundamentals",
       subtitle: "IBM Skillsbuild",
@@ -344,7 +431,7 @@ const experience = {
   title: "Experience",
   subtitle: "Work",
   description:
-    "Since joining Aboitiz Group as a Software Programmer, my strategic insights and analytical skills have greatly contributed to the team's success. With a Bachelor of Science in Information Technology from Rizal Technological University, I apply my PHP and Javascript programming expertise to drive innovative solutions. Our collaborative efforts focus on enhancing operational efficiency and advancing technological capabilities within the organization.",
+    "A Software Developer and Data Engineer with hands-on experience building enterprise applications, automating workflows, and designing data pipelines. Currently working at Magellan Outsourcing as a Data Engineer, and previously at Aboitiz Equity Ventures where I developed internal systems and digitized paper-based processes. Passionate about leveraging technology to drive efficiency and deliver scalable solutions.",
   header_image_path: "experience.svg",
   sections: [
     {
@@ -352,11 +439,22 @@ const experience = {
       work: true,
       experiences: [
         {
+          title: "Data Engineer",
+          company: "Magellan Outsourcing",
+          company_url: "https://www.magellan-outsourcing.com/",
+          logo_path: "magellan.jpg",
+          duration: "February 2026 - Present",
+          location: "Philippines",
+          description:
+            "Working as a Software Developer at Magellan Outsourcing, contributing to the development and maintenance of software solutions for clients, collaborating with cross-functional teams to deliver high-quality and scalable applications.",
+          color: "#000000",
+        },
+        {
           title: "Software Developer",
-          company: "Aboitiz Equity Venture",
+          company: "Aboitiz Equity Ventures",
           company_url: "https://aboitiz.com/",
           logo_path: "aevlogo.png",
-          duration: "October 2023 - Present",
+          duration: "October 2023 - December 2025",
           location: "32nd Street BGC, Taguig, Philippines",
           description:
             "At Aboitiz, I developed applications to streamline workflows by reducing paper-based processes and automating tasks. I managed the Security Management System for Aboitiz Equity Ventures, ensuring smooth operations and data integrity. Additionally, I handled database queries and provided support for various IT-related tasks, contributing to system efficiency and reliability.",
@@ -364,7 +462,7 @@ const experience = {
         },
       ],
     },
-      ],
+  ],
 };
 
 // Projects Page
@@ -382,9 +480,7 @@ const publicationsHeader = {
 };
 
 const publications = {
-  data: [
-   
-  ],
+  data: [],
 };
 
 // Contact Page
