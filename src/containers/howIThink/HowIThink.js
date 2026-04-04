@@ -5,6 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const isMobile = () => window.innerWidth <= 768;
+
 const principles = [
   {
     code: "D",
@@ -70,14 +72,18 @@ export default function HowIThink() {
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
+
+    // ── Mobile: skip all GSAP, just show everything ─
+    if (isMobile()) return;
+
     const ctx = gsap.context(() => {
       // ── 1. Heading wipe-in ──────────────────────────
-      gsap.set([headingRef.current, taglineRef.current], { opacity: 0, y: 50 });
+      gsap.set([headingRef.current, taglineRef.current], { opacity: 0, y: 40 });
       gsap.to([headingRef.current, taglineRef.current], {
         opacity: 1,
         y: 0,
-        duration: 1,
-        stagger: 0.18,
+        duration: 0.8,
+        stagger: 0.15,
         ease: "power3.out",
         scrollTrigger: {
           trigger: headingRef.current,
@@ -90,7 +96,7 @@ export default function HowIThink() {
       gsap.set(lineRef.current, { scaleX: 0, transformOrigin: "left center" });
       gsap.to(lineRef.current, {
         scaleX: 1,
-        duration: 1.4,
+        duration: 1.2,
         ease: "power2.inOut",
         scrollTrigger: {
           trigger: connectorRef.current,
@@ -99,15 +105,15 @@ export default function HowIThink() {
         },
       });
 
-      // ── 3. DMAIC code letters pop up with bounce ────
-      gsap.set(codeLettersRef.current, { opacity: 0, scale: 0.2, y: 30 });
+      // ── 3. DMAIC letters bounce in ──────────────────
+      gsap.set(codeLettersRef.current, { opacity: 0, scale: 0.2, y: 24 });
       gsap.to(codeLettersRef.current, {
         opacity: 1,
         scale: 1,
         y: 0,
-        duration: 0.6,
+        duration: 0.55,
         ease: "back.out(2)",
-        stagger: 0.12,
+        stagger: 0.1,
         scrollTrigger: {
           trigger: connectorRef.current,
           start: "top 80%",
@@ -115,19 +121,19 @@ export default function HowIThink() {
         },
       });
 
-      // ── 4. Cards slide in alternating left/right ───
+      // ── 4. Cards slide in alternating sides ─────────
       cardsRef.current.forEach((card, i) => {
         if (!card) return;
         const fromLeft = i % 2 === 0;
-        gsap.set(card, { opacity: 0, x: fromLeft ? -80 : 80 });
+        gsap.set(card, { opacity: 0, x: fromLeft ? -60 : 60 });
         gsap.to(card, {
           opacity: 1,
           x: 0,
-          duration: 0.85,
-          ease: "power3.out",
+          duration: 0.7,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 82%",
+            start: "top 85%",
             toggleActions: "play none none none",
           },
         });

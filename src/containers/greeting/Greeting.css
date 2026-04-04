@@ -349,16 +349,34 @@
   .hero-section {
     flex-direction: column-reverse;
     min-height: auto;
-    padding: 40px 6%;
+    padding: 40px 16px;
     text-align: center;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
   }
 
   .hero-image {
-    flex: 0 0 65vw;
-    width: 65vw;
-    max-width: 280px;
+    flex: 0 0 60vw;
+    width: 60vw;
+    max-width: 260px;
+  }
+
+  /* Kill all hover transforms on mobile — they cause layout jank */
+  .photo-frame:hover {
+    transform: none;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.13);
+  }
+
+  [data-theme="dark"] .photo-frame:hover {
+    box-shadow: 0 20px 60px rgba(179, 136, 255, 0.25);
+  }
+
+  .hero-photo {
+    transition: none;
+  }
+
+  .photo-frame:hover .hero-photo {
+    transform: none;
   }
 
   .hero-roles {
@@ -376,5 +394,11 @@
 
   .photo-accent-bar {
     display: none;
+  }
+
+  /* Simpler modal on mobile */
+  .resume-modal {
+    height: 85vh;
+    border-radius: 12px;
   }
 }

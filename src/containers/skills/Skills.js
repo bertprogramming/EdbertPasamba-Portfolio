@@ -35,23 +35,40 @@ const cardAccents = [
   },
 ];
 
+const isMobile = () => window.innerWidth <= 768;
+
 export default function Skills(props) {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const subRef = useRef(null);
   const cardsRef = useRef([]);
-  const dotsRef = useRef([]);
-  const counterRef = useRef(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     const cards = cardsRef.current.filter(Boolean);
-    const dots = dotsRef.current.filter(Boolean);
     if (!section || !cards.length) return;
 
+    // ── Mobile: simple fade-in only, no pin, no carousel ──
+    if (isMobile()) {
+      gsap.set(cards, { opacity: 0, y: 30 });
+      gsap.to(cards, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power2.out",
+        stagger: 0.1,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+      return () => ScrollTrigger.getAll().forEach((t) => t.kill());
+    }
+
+    // ── Desktop: pinned carousel ───────────────────────
     const total = cards.length;
 
-    // ── Animate heading in on scroll ──────────────
     gsap.set([headingRef.current, subRef.current], { opacity: 0, y: 36 });
     gsap.to([headingRef.current, subRef.current], {
       opacity: 1,
@@ -66,34 +83,17 @@ export default function Skills(props) {
       },
     });
 
-    // ── Set initial card states ────────────────────
-    // Card 0: visible center
     gsap.set(cards[0], { xPercent: 0, opacity: 1, scale: 1 });
-    // All others: off to the right, invisible
     if (cards.length > 1) {
       gsap.set(cards.slice(1), { xPercent: 115, opacity: 0, scale: 0.86 });
     }
 
-    // ── Set initial dot states ─────────────────────
-    if (dots.length) {
-      gsap.set(dots, { width: 8, backgroundColor: "rgba(255,255,255,0.22)" });
-      gsap.set(dots[0], { width: 30, backgroundColor: "#b388ff" });
-    }
-
-    // ── Counter initial ────────────────────────────
     const pad = (n) => String(n).padStart(2, "0");
-    if (counterRef.current) {
-      counterRef.current.textContent = `${pad(1)} / ${pad(total)}`;
-    }
 
-    // ── Build timeline: one transition per card ────
     const tl = gsap.timeline();
-
     cards.forEach((card, i) => {
       if (i === total - 1) return;
       const next = cards[i + 1];
-
-      // Slide current out left, next in from right
       tl.to(card, {
         xPercent: -115,
         opacity: 0,
@@ -111,49 +111,8 @@ export default function Skills(props) {
         },
         "<"
       );
-
-      // Shrink current dot
-      if (dots[i]) {
-        tl.to(
-          dots[i],
-          {
-            width: 8,
-            backgroundColor: "rgba(255,255,255,0.22)",
-            duration: 0.35,
-            ease: "power2.out",
-          },
-          "<0.4"
-        );
-      }
-      // Grow next dot
-      if (dots[i + 1]) {
-        tl.to(
-          dots[i + 1],
-          {
-            width: 30,
-            backgroundColor: cardAccents[(i + 1) % cardAccents.length].color,
-            duration: 0.35,
-            ease: "power2.out",
-          },
-          "<"
-        );
-      }
-
-      // Update counter
-      if (counterRef.current) {
-        const idx = i + 2;
-        tl.call(
-          () => {
-            if (counterRef.current)
-              counterRef.current.textContent = `${pad(idx)} / ${pad(total)}`;
-          },
-          [],
-          "<0.5"
-        );
-      }
     });
 
-    // ── Pin section, drive timeline on scroll ──────
     ScrollTrigger.create({
       trigger: section,
       start: "top top",
@@ -163,9 +122,7 @@ export default function Skills(props) {
       animation: tl,
     });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+    return () => ScrollTrigger.getAll().forEach((t) => t.kill());
   }, []);
 
   return (
