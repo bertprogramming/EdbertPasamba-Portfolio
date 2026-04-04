@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../../components/header/Header";
 import Greeting from "../../containers/greeting/Greeting";
 import Skills from "../../containers/skills/Skills";
+import HowIThink from "../../containers/howIThink/HowIThink";
 import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
 
@@ -13,6 +14,7 @@ class Home extends Component {
         <Header theme={theme} toggleTheme={toggleTheme} isDark={isDark} />
         <Greeting theme={theme} />
         <Skills theme={theme} />
+        <HowIThink theme={theme} />
         <Footer theme={theme} />
         <TopButton theme={theme} />
       </div>

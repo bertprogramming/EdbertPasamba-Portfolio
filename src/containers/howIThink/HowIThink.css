@@ -1,0 +1,316 @@
+/* ══════════════════════════════════════════════════
+   How I Think — Lean Six Sigma Section
+   ══════════════════════════════════════════════════ */
+
+#how-i-think {
+  width: 100%;
+  padding: 120px 6% 140px;
+  box-sizing: border-box;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial ambient behind everything */
+#how-i-think::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(179, 136, 255, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ── Heading ──────────────────────────────────────── */
+.hit-heading-wrap {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 72px;
+}
+
+.hit-heading {
+  font-family: "Google Sans Bold";
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 20px;
+  background: linear-gradient(135deg, #ffffff 30%, #b388ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.15;
+}
+
+.hit-tagline {
+  font-family: "Google Sans Regular";
+  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.hit-highlight {
+  color: #b388ff;
+  font-family: "Google Sans Bold";
+}
+
+/* ── DMAIC Connector Bar ──────────────────────────── */
+.hit-dmaic-wrap {
+  width: 100%;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.hit-dmaic-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 780px;
+  padding: 0 20px;
+}
+
+/* The line that draws across */
+.hit-dmaic-line {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  right: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-50%);
+  border-radius: 2px;
+  /* GSAP drives scaleX */
+  will-change: transform;
+}
+
+[data-theme="light"] .hit-dmaic-line {
+  background: linear-gradient(
+    to right,
+    #b388ff,
+    #4facfe,
+    #43e97b,
+    #f5576c,
+    #fee140
+  );
+  height: 2px;
+  opacity: 0.6;
+}
+
+/* Each node on the line */
+.hit-dmaic-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hit-dmaic-letter {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid var(--color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Google Sans Bold";
+  font-size: 1.4rem;
+  color: var(--color);
+  box-shadow: 0 0 20px var(--glow);
+  will-change: transform, opacity;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.hit-dmaic-node:hover .hit-dmaic-letter {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 0 36px var(--glow), 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.hit-dmaic-label {
+  font-family: "Google Sans Regular";
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color);
+  opacity: 0.75;
+}
+
+/* ── Principle Cards ──────────────────────────────── */
+.hit-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.hit-card {
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  will-change: transform, opacity;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.hit-card:hover {
+  transform: translateX(6px);
+  border-color: var(--color, rgba(179, 136, 255, 0.3));
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3), -4px 0 0 var(--color);
+}
+
+/* Vertical left stripe */
+.hit-card-stripe {
+  width: 4px;
+  flex-shrink: 0;
+  background: var(--color);
+  opacity: 0.9;
+  border-radius: 16px 0 0 16px;
+  transition: width 0.3s ease;
+}
+
+.hit-card:hover .hit-card-stripe {
+  width: 6px;
+}
+
+.hit-card-inner {
+  padding: 28px 32px;
+  flex: 1;
+}
+
+/* Meta row: icon + code label */
+.hit-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.hit-card-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.hit-card-code {
+  font-family: "Google Sans Bold";
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.hit-card-title {
+  font-family: "Google Sans Bold";
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: #ffffff;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+.hit-card-body {
+  font-family: "Google Sans Regular";
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  color: rgba(255, 255, 255, 0.58);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ══════════════════════════════════════════════════
+   Light Mode
+   ══════════════════════════════════════════════════ */
+
+[data-theme="light"] #how-i-think::before {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(118, 75, 162, 0.06) 0%,
+    transparent 70%
+  );
+}
+
+[data-theme="light"] .hit-heading {
+  background: linear-gradient(135deg, #2b1958 30%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .hit-tagline {
+  color: #7d56c2;
+}
+
+[data-theme="light"] .hit-highlight {
+  color: #5c35a5;
+}
+
+[data-theme="light"] .hit-dmaic-letter {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="light"] .hit-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(118, 75, 162, 0.1);
+  box-shadow: 0 4px 24px rgba(76, 43, 145, 0.08);
+}
+
+[data-theme="light"] .hit-card:hover {
+  box-shadow: 0 12px 40px rgba(76, 43, 145, 0.14), -4px 0 0 var(--color);
+}
+
+[data-theme="light"] .hit-card-title {
+  color: #1d0c41;
+}
+
+[data-theme="light"] .hit-card-body {
+  color: #5a4a7a;
+}
+
+/* ══════════════════════════════════════════════════
+   Responsive
+   ══════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  #how-i-think {
+    padding: 80px 20px 100px;
+  }
+
+  .hit-heading-wrap {
+    margin-bottom: 48px;
+  }
+
+  .hit-dmaic-wrap {
+    margin-bottom: 52px;
+  }
+
+  .hit-dmaic-letter {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+
+  .hit-dmaic-label {
+    font-size: 0.58rem;
+  }
+
+  .hit-card-inner {
+    padding: 22px 20px;
+  }
+
+  .hit-card:hover {
+    transform: none;
+  }
+}

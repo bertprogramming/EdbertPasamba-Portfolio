@@ -487,7 +487,7 @@ const publications = {
 const contactPageData = {
   contactSection: {
     title: "Contact Me",
-    profile_image_path: "edbert.jpg",
+    profile_image_path: "PASAMBA.jpg",
     description:
       "For Job/Project offers, reach out to me on any of this websites",
   },

@@ -1,11 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Greeting.css";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
 import { greeting } from "../../portfolio";
 import { Fade } from "react-reveal";
 
+// Convert Drive share link → embed preview URL
+function getDriveEmbedUrl(url) {
+  const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  if (match) return `https://drive.google.com/file/d/${match[1]}/preview`;
+  return url;
+}
+
 export default function Greeting(props) {
   const theme = props.theme;
+  const [resumeOpen, setResumeOpen] = useState(false);
+
+  // Close on Escape key
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") setResumeOpen(false);
+    };
+    if (resumeOpen) document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [resumeOpen]);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = resumeOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [resumeOpen]);
+
+  const embedUrl = getDriveEmbedUrl(greeting.resumeLink);
+
   return (
     <div className="hero-section-wrapper">
       <section className="hero-section" id="greeting">
@@ -44,15 +72,14 @@ export default function Greeting(props) {
               {greeting.subTitle}
             </p>
             <div className="hero-cta">
-              <a
-                href={greeting.resumeLink}
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* Resume button — opens modal instead of new tab */}
+              <button
                 className="btn-primary"
                 style={{ backgroundColor: theme.imageHighlight }}
+                onClick={() => setResumeOpen(true)}
               >
                 View Resume
-              </a>
+              </button>
               <a
                 href="/contact"
                 className="btn-secondary"
@@ -93,6 +120,51 @@ export default function Greeting(props) {
           </div>
         </Fade>
       </section>
+
+      {/* ── Resume Modal ── */}
+      {resumeOpen && (
+        <div
+          className="resume-modal-backdrop"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setResumeOpen(false);
+          }}
+        >
+          <div className="resume-modal">
+            {/* Modal Header */}
+            <div className="resume-modal-header">
+              <span className="resume-modal-title">Resume</span>
+              <div className="resume-modal-actions">
+                <a
+                  href={greeting.resumeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="resume-modal-open-btn"
+                  title="Open in Google Drive"
+                >
+                  ↗ Open in Drive
+                </a>
+                <button
+                  className="resume-modal-close"
+                  onClick={() => setResumeOpen(false)}
+                  aria-label="Close"
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            {/* PDF Embed */}
+            <div className="resume-modal-body">
+              <iframe
+                src={embedUrl}
+                title="Resume"
+                className="resume-iframe"
+                allow="autoplay"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

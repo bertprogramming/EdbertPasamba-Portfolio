@@ -95,7 +95,10 @@ class Experience extends Component {
                             className="exp-card-location"
                             style={{ color: theme.secondaryText }}
                           >
-                            📍 {exp.location}
+                            <span role="img" aria-label="location pin">
+                              📍
+                            </span>{" "}
+                            {exp.location}
                           </p>
                         </div>
                       </div>
