@@ -88,8 +88,6 @@ export default function Skills(props) {
       gsap.set(cards.slice(1), { xPercent: 115, opacity: 0, scale: 0.86 });
     }
 
-    const pad = (n) => String(n).padStart(2, "0");
-
     const tl = gsap.timeline();
     cards.forEach((card, i) => {
       if (i === total - 1) return;
