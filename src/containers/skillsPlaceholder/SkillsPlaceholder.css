@@ -340,10 +340,51 @@
 
 @media (max-width: 768px) {
   .sp-section {
-    padding: 40px 16px;
+    padding: 40px 12px;
   }
 
-  .sp-projects-grid {
-    grid-template-columns: 1fr;
+  .sp-inner {
+    max-width: 100%;
+  }
+
+  /* Center the Skills header on mobile */
+  .skills-header-div {
+    text-align: center;
+  }
+
+  /* Shrink side zones to just arrows, not wide panels */
+  .sp-carousel-zone {
+    width: 32px;
+  }
+
+  .sp-carousel-zone-icon {
+    font-size: 1.4rem;
+    opacity: 0.6;
+  }
+
+  /* Source nodes: wrap into a 2-column grid */
+  .sp-sources {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .sp-source-node {
+    justify-content: center;
+    padding: 6px 8px;
+  }
+
+  .sp-source-label {
+    font-size: 0.75rem;
+  }
+
+  /* Tighten step cards on mobile */
+  .sp-step-card {
+    padding: 14px 12px;
+  }
+
+  .sp-project-card {
+    padding: 16px 14px;
   }
 }
