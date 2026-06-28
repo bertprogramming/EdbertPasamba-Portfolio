@@ -3,10 +3,9 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import TopButton from "../../components/topButton/TopButton";
 import SocialMedia from "../../components/socialMedia/SocialMedia";
-import Button from "../../components/button/Button";
 import { Fade } from "react-reveal";
 import "./ContactComponent.css";
-import { greeting, contactPageData } from "../../portfolio.js";
+import { contactPageData } from "../../portfolio.js";
 
 const ContactData = contactPageData.contactSection;
 
@@ -42,18 +41,29 @@ class Contact extends Component {
                 >
                   {ContactData["description"]}
                 </p>
+                <p
+                  className="contact-email"
+                  style={{ color: theme.secondaryText }}
+                >
+                  <a
+                    href="https://mail.google.com/mail/?view=cm&to=bertopasamba@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: theme.imageHighlight }}
+                  >
+                    bertopasamba@gmail.com
+                  </a>
+                </p>
                 <SocialMedia theme={theme} />
-                <div className="resume-btn-div">
-                  <Button
-                    text="See My Resume"
-                    newTab={true}
-                    href={greeting.resumeLink}
-                    theme={theme}
-                  />
-                </div>
               </div>
             </div>
           </Fade>
+        </div>
+        <div className="contact-skills-section">
+          <div className="contact-skills-header">
+            <h2 style={{ color: theme.text }}>Skills</h2>
+            <p style={{ color: theme.secondaryText }}>Coming soon</p>
+          </div>
         </div>
         <Footer theme={this.props.theme} onToggle={this.props.onToggle} />
         <TopButton theme={this.props.theme} />

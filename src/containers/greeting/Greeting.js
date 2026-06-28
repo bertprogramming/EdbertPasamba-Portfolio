@@ -67,19 +67,23 @@ export default function Greeting(props) {
               >
                 Data Engineer
               </span>
+              <span className="role-dot" style={{ color: theme.secondaryText }}>
+                ·
+              </span>
+              <span
+                className="role-tag"
+                style={{
+                  borderColor: theme.imageHighlight,
+                  color: theme.imageHighlight,
+                }}
+              >
+                System Automation
+              </span>
             </div>
             <p className="hero-subtitle" style={{ color: theme.secondaryText }}>
               {greeting.subTitle}
             </p>
             <div className="hero-cta">
-              {/* Resume button — opens modal instead of new tab */}
-              <button
-                className="btn-primary"
-                style={{ backgroundColor: theme.imageHighlight }}
-                onClick={() => setResumeOpen(true)}
-              >
-                View Resume
-              </button>
               <a
                 href="/contact"
                 className="btn-secondary"

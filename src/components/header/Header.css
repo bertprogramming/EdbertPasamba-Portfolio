@@ -1,7 +1,10 @@
 /* ── Header Wrapper ───────────────────────────── */
 .header-wrapper {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   z-index: 100;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -218,18 +221,38 @@
 /* ── Responsive ───────────────────────────────── */
 @media (max-width: 768px) {
   .header {
-    padding: 0 20px;
-    height: auto;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding: 0 16px;
+    height: 56px;
     flex-wrap: wrap;
+    align-items: center;
   }
 
+  /* logo stays left, shrink so it doesn't crowd */
+  .header .logo {
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: 1.1rem;
+  }
+
+  /* hamburger and toggle share the right side on one line */
   .header .menu-icon {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    padding: 0;
+    order: 2;
+    flex-shrink: 0;
+    margin-left: 12px;
   }
 
+  .theme-toggle-btn {
+    order: 1;
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  /* nav dropdown fills full width below the top row */
   .header .menu {
+    order: 3;
     max-height: 0;
     overflow: hidden;
     flex-direction: column;
@@ -243,10 +266,6 @@
 
   .header li a {
     padding: 12px 4px;
-  }
-
-  .theme-toggle-btn {
-    order: 3;
   }
 }
 

@@ -2,6 +2,62 @@
   width: 100%;
 }
 
+.contact-skills-section {
+  margin: 60px 5%;
+  padding: 48px 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(18, 14, 46, 0.72);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="light"] .contact-skills-section {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(118, 75, 162, 0.12);
+  box-shadow: 0 8px 32px rgba(76, 43, 145, 0.1);
+}
+
+.contact-skills-header {
+  text-align: center;
+}
+
+.contact-skills-header h2 {
+  font-family: "Google Sans Bold";
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0 0 8px;
+}
+
+.contact-skills-header p {
+  font-family: "Google Sans Regular";
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .contact-skills-section {
+    margin: 40px 16px;
+    padding: 36px 24px;
+  }
+}
+
+.contact-email {
+  font-family: "Google Sans Regular";
+  font-size: 1rem;
+  margin: 8px 0 16px;
+}
+
+.contact-email a {
+  text-decoration: none;
+}
+
+.contact-email a:hover {
+  text-decoration: underline;
+}
+
 .basic-contact {
   margin-left: 5%;
   margin-right: 5%;

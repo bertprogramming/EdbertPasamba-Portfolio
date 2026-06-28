@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../../components/header/Header";
 import Greeting from "../../containers/greeting/Greeting";
+import SkillsPlaceholder from "../../containers/skillsPlaceholder/SkillsPlaceholder";
 import Skills from "../../containers/skills/Skills";
 import HowIThink from "../../containers/howIThink/HowIThink";
 import Footer from "../../components/footer/Footer";
@@ -13,7 +14,8 @@ class Home extends Component {
       <div>
         <Header theme={theme} toggleTheme={toggleTheme} isDark={isDark} />
         <Greeting theme={theme} />
-        <Skills theme={theme} />
+        <SkillsPlaceholder theme={theme} />
+        {/* <Skills theme={theme} /> */}
         <HowIThink theme={theme} />
         <Footer theme={theme} />
         <TopButton theme={theme} />

@@ -23,7 +23,7 @@ const greeting = {
   logo_name: "Edbert Pasamba",
   nickname: "Bert",
   subTitle:
-    "A dedicated software developer and data engineer with a passion for building scalable applications, designing efficient data pipelines, and transforming raw data into actionable insights.",
+    "Success to me is the business impact left behind, not the title that comes with it. I build to drive revenue, modernize how teams operate, and strip the excess out of every process. Simplicity isn't a design choice, it's the standard.",
   resumeLink:
     "https://drive.google.com/file/d/1XkA2KPFFMtA5exMoXiQ6d0GWeASmDU4y/view?usp=sharing",
   portfolio_repository: "https://github.com/bertprogramming",
@@ -75,6 +75,57 @@ const socialMediaLinks = [
 
 const skills = {
   data: [
+    {
+      title: "Data Engineering",
+      fileName: "DataEngImg",
+      skills: [
+        "- Builds and maintains scalable data pipelines using Python and SQL for ETL/ELT workflows.",
+        "- Designs and optimizes data models and schemas for analytical and operational workloads.",
+        "- Works with modern data stack tools to automate ingestion, transformation, and orchestration.",
+      ],
+      softwareSkills: [
+        {
+          skillName: "Python",
+          fontAwesomeClassname: "simple-icons:python",
+          style: { color: "#3776AB" },
+        },
+        {
+          skillName: "SQL",
+          fontAwesomeClassname: "simple-icons:postgresql",
+          style: { color: "#336791" },
+        },
+        {
+          skillName: "Apache Spark",
+          fontAwesomeClassname: "simple-icons:apachespark",
+          style: { color: "#E25A1C" },
+        },
+        {
+          skillName: "dbt",
+          fontAwesomeClassname: "simple-icons:dbt",
+          style: { color: "#FF694B" },
+        },
+        {
+          skillName: "Apache Airflow",
+          fontAwesomeClassname: "simple-icons:apacheairflow",
+          style: { color: "#017CEE" },
+        },
+        {
+          skillName: "Snowflake",
+          fontAwesomeClassname: "simple-icons:snowflake",
+          style: { color: "#29B5E8" },
+        },
+        {
+          skillName: "DuckDB",
+          fontAwesomeClassname: "simple-icons:duckdb",
+          style: { color: "#FFF000" },
+        },
+        {
+          skillName: "Apache Kafka",
+          fontAwesomeClassname: "simple-icons:apachekafka",
+          style: { color: "#231F20" },
+        },
+      ],
+    },
     {
       title: "Full Stack Development",
       fileName: "FullStackImg",
@@ -454,6 +505,7 @@ const experience = {
           company: "Aboitiz Equity Ventures",
           company_url: "https://aboitiz.com/",
           logo_path: "aevlogo.png",
+          logo_style: { borderRadius: "10px", objectFit: "contain" },
           duration: "October 2023 - December 2025",
           location: "32nd Street BGC, Taguig, Philippines",
           description:

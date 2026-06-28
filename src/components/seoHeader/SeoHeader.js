@@ -20,9 +20,10 @@ function SeoHeader() {
       sameAs.push(media.link);
     });
 
-  let mail = socialMediaLinks
-    .find((media) => media.link.startsWith("mailto"))
-    .link.substring("mailto:".length);
+  let mailEntry = socialMediaLinks.find((media) =>
+    media.link.startsWith("mailto")
+  );
+  let mail = mailEntry ? mailEntry.link.substring("mailto:".length) : "";
   let job = experience.sections
     ?.find((section) => section.work)
     ?.experiences?.at(0);

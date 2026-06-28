@@ -34,6 +34,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Offset for fixed navbar */
+.main-body {
+  padding-top: 68px;
+}
+
+@media (max-width: 768px) {
+  .main-body {
+    padding-top: 56px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }

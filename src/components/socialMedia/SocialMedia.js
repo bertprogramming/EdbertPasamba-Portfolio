@@ -20,7 +20,13 @@ export default function socialMedia(props) {
         return (
           <a
             key={i}
-            href={media.link}
+            href={
+              media.link.startsWith("mailto:")
+                ? `https://mail.google.com/mail/?view=cm&to=${media.link.substring(
+                    "mailto:".length
+                  )}`
+                : media.link
+            }
             className={`icon-button`}
             target="_blank"
             rel="noopener noreferrer"

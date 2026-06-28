@@ -70,7 +70,7 @@
 .hit-dmaic-track {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   max-width: 780px;
@@ -80,14 +80,13 @@
 /* The line that draws across */
 .hit-dmaic-line {
   position: absolute;
-  top: 50%;
+  top: 27px;
   left: 40px;
   right: 40px;
   height: 1px;
   background: rgba(255, 255, 255, 0.12);
   transform: translateY(-50%);
   border-radius: 2px;
-  /* GSAP drives scaleX */
   will-change: transform;
 }
 
@@ -303,8 +302,12 @@
   }
 
   .hit-dmaic-track {
-    min-width: 360px; /* prevent nodes from squishing */
+    min-width: 360px;
     padding: 0 10px;
+  }
+
+  .hit-dmaic-line {
+    top: 20px;
   }
 
   .hit-dmaic-letter {
